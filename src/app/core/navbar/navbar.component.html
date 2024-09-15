@@ -1,0 +1,50 @@
+<nav class="navbar navbar-expand-lg">
+  <a class="navbar-brand" [routerLink]="['/']">
+    <img src="../../../assets/logobianco.png" alt="Home" class="logo-betacom">
+  </a>
+  <button class="navbar-toggler" type="button" (click)="toggleNavbar()" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav mx-auto">
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/']">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/shop/listProducts']">Negozio</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/shop/getProductOffers']">Offerte</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/aboutus']">Chi siamo</a>
+      </li>
+    </ul>
+
+    <div class="margin-right">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/account/cart']">
+            <img src="../../../assets/carrello.png" alt="Carrello" class="logo">
+          </a>
+        </li>
+        <li class="nav-item dropdown" (mouseover)="onMouseOver($event)" (mouseleave)="onMouseLeave($event)">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" (click)="toggleDropdown()" aria-expanded="false">
+            <img src="../../../assets/utente.png" alt="My account" class="logo">
+          </a>
+          <div class="dropdown-menu dropdown-menu-end text-center" aria-labelledby="navbarDropdown" *ngIf="dropdownOpen">
+            <a class="dropdown-item" [routerLink]="['/account/details']">Account</a>
+            <form action="/account/orders" method="get">
+              <button class="dropdown-item" type="submit">Ordini</button>
+            </form>
+            <a class="dropdown-item" [routerLink]="['/assistenza']">Assistenza</a>
+            <form action="/logout" method="post">
+              <button class="dropdown-item" type="submit">Logout</button>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
